@@ -1,12 +1,15 @@
-.classpath
-.project
-.settings
-target/
-build/
-dist/
-nbproject/private/
+# Ignore Netbeans specific files
+nbproject/private
 nbbuild/
+dist/
 nbdist/
 nbactions.xml
-.nb-gradle/
 nb-configuration.xml
+.nb-gradle/
+
+# Binary class files are not needed
+*.class
+
+# Package files are not needed
+*.jar
+*.war
