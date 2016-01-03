@@ -13,3 +13,6 @@ nb-configuration.xml
 # Package files are not needed
 *.jar
 *.war
+
+# Target-folder is not needed
+target/
