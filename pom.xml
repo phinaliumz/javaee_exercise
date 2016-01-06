@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.samikallio</groupId>
-    <artifactId>javaee_exercise</artifactId>
+    <artifactId>exercise</artifactId>
     <version>0.01</version>
     <packaging>war</packaging>
 
@@ -15,11 +15,6 @@
     </properties>
     
     <dependencies>
-        <dependency>
-            <groupId>org.apache.tomee</groupId>
-            <artifactId>apache-tomee</artifactId>
-            <version>7.0.0-M1</version>
-        </dependency>
         <dependency>
             <groupId>org.apache.myfaces.core</groupId>
             <artifactId>myfaces-impl</artifactId>
@@ -44,6 +39,7 @@
     </dependencies>
 
     <build>
+        <finalName>exercise</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -89,15 +85,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-              <groupId>org.apache.openejb.maven</groupId>
-              <artifactId>tomee-maven-plugin</artifactId>
-              <version>1.7.1</version>
-              <configuration>
-                <tomeeVersion>1.7.1</tomeeVersion>
-                <tomeeClassifier>plus</tomeeClassifier>
-              </configuration>
             </plugin>
         </plugins>
     </build>
