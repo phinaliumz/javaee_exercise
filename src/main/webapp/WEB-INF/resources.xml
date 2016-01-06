@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Resource id="EXERICISEDS" type="DataSource">
+    JdbcDriver          com.postgresql.Driver
+    JdbcUrl             jdbc:postgresql://localhost:5432/exercisedb
+    UserName            nbuser
+    Password            nbuser
+    JtaManaged          true
+</Resource>
