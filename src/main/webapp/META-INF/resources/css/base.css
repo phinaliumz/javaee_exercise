@@ -1,0 +1,60 @@
+/* 
+* This is the base CSS-file for the exercise application.
+* It defines to body background and styling for other
+* common elements
+*/
+
+body {
+    color: #ffffff;
+    background-color: #131D24;
+    background-image: repeating-linear-gradient(
+        45deg, 
+        #080b0d,
+        #080b0d 20px,
+        #0a0f13 20px,
+        #0a0f13 40px);
+    background-size: 100%;
+    background-attachment: fixed;
+    font-family: 'Liberation sans', 'Helvetica', 'Verdana', sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+#wrapper {
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#title {
+    width: 98%;
+    margin-bottom: 1.5em;
+    text-align: left;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+nav {
+    width: 98%;
+    margin-bottom: 1.5em;
+    margin-top: 1.5em;
+}
+
+.center_content {
+    width: 98%;
+}
+
+.ok {
+    color: green;
+}
+
+.fail {
+    color: #ffffff;
+}
+
+.errors {
+    color: #ff4754; 
+    margin-left: 5px;
+}
