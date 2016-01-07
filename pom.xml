@@ -42,6 +42,15 @@
         <finalName>exercise</finalName>
         <plugins>
             <plugin>
+                <groupId>org.apache.openejb.maven</groupId>
+                <artifactId>tomee-maven-plugin</artifactId>
+                <version>1.7.1</version>
+                <configuration>
+                  <tomeeVersion>1.7.1</tomeeVersion>
+                  <tomeeClassifier>plus</tomeeClassifier>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>

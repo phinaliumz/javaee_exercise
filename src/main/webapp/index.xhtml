@@ -16,13 +16,20 @@
         <f:view>
             <f:loadBundle basename="com.samikallio.exercise.messages.Messages" var="messages"/>
         </f:view>
-        <h:panelGroup id="wrapper" layout="block">
-            <nav>
-                <ui:insert name="navbar">Navbar</ui:insert>
-            </nav>
-            <div id="content" class="center_content">
-                <ui:insert name="content">Content</ui:insert>
-            </div>
+        <h:panelGroup>
+            <h:form>
+                <h:outputLabel>#{messages.firstName}</h:outputLabel>
+                <h:inputText></h:inputText>
+                <h:outputLabel>#{messages.lastName}</h:outputLabel>
+                <h:inputText></h:inputText>
+                <h:outputLabel>#{messages.gender}</h:outputLabel>
+                <h:selectOneRadio>
+                    <f:selectItem itemLabel="#{messages.male}"/>
+                    <f:selectItem itemLabel="#{messages.female}"/>
+                </h:selectOneRadio>
+                <h:outputLabel>#{messages.whyAreYouApplying}</h:outputLabel>
+                <h:inputTextarea></h:inputTextarea>
+            </h:form>
         </h:panelGroup>
     </h:body>
 </html>
