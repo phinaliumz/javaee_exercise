@@ -3,12 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <h:outputStylesheet library="css" name="base.css"/>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:700|Ubuntu' rel='stylesheet' type='text/css'/>
         <title>#{messages.applicationTitle}</title>
     </h:head>
 
@@ -18,28 +20,30 @@
         </f:view>
         <h:panelGroup>
             <h:form>
+                
                 <h:panelGroup layout="block" styleClass="inputPanel">
-                    <h:outputLabel id="firstNameLabel" value="#{messages.firstName}" for="firstName"/>
-                    <h:inputText id="firstName" value="#{userBean.firstName}"></h:inputText>
+                    <h:outputLabel id="firstNameLabel" value="#{messages.firstName}" for="firstName" styleClass="inputLabel"/>
+                    <h:inputText id="firstName" value="#{userBean.firstName}" pt:placeholder="#{messages.pleaseFillMe}"></h:inputText>
                 </h:panelGroup>
                 
                 <h:panelGroup layout="block" styleClass="inputPanel">
-                    <h:outputLabel>#{messages.lastName}</h:outputLabel>
-                    <h:inputText></h:inputText>
+                    <h:outputLabel id="lastNameLabel" value="#{messages.lastName}" for="lastName" styleClass="inputLabel"/>
+                    <h:inputText id="lastName" value="#{userBean.lastName}" pt:placeholder="#{messages.pleaseFillMe}"></h:inputText>
                 </h:panelGroup>
                 
                 <h:panelGroup layout="block" styleClass="inputPanel">
-                    <h:outputLabel>#{messages.gender}</h:outputLabel>
-                    <h:selectOneRadio>
-                        <f:selectItem itemLabel="#{messages.male}"/>
-                        <f:selectItem itemLabel="#{messages.female}"/>
+                    <h:outputLabel id="genderLabel" value="#{messages.gender}" for="gender" styleClass="inputLabel"/>
+                    <h:selectOneRadio id="gender" value="#{userBean.gender}">
+                        <f:selectItem itemLabel="#{messages.male}" itemValue="Male"/>
+                        <f:selectItem itemLabel="#{messages.female}" itemValue="Female"/>
                     </h:selectOneRadio>
                 </h:panelGroup>
                 
                 <h:panelGroup layout="block" styleClass="inputPanel">
-                    <h:outputLabel>#{messages.whyAreYouApplying}</h:outputLabel>
-                    <h:inputTextarea></h:inputTextarea>
+                    <h:outputLabel id="reasonLabel" value="#{messages.whyAreYouApplying}" for="reason" styleClass="inputLabel"/>
+                    <h:inputTextarea id="reason" value="#{userBean.reasonForApplying}" styleClass="reasonTextarea"></h:inputTextarea>
                 </h:panelGroup>
+                
             </h:form>
         </h:panelGroup>
     </h:body>

@@ -18,7 +18,7 @@ import javax.persistence.OneToOne;
  * @author sami
  */
 @Entity
-public class ApplyingReason implements Serializable {
+public class ApplyingReasonEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -65,10 +65,10 @@ public class ApplyingReason implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ApplyingReason)) {
+        if (!(object instanceof ApplyingReasonEntity)) {
             return false;
         }
-        ApplyingReason other = (ApplyingReason) object;
+        ApplyingReasonEntity other = (ApplyingReasonEntity) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }

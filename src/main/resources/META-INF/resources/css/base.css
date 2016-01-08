@@ -24,11 +24,29 @@ input[type=text] {
     height: 35px;
     width: 12em;
     font-size: 1.25em;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .inputPanel {
     width: 100%;
     margin-bottom: 1.25%;
+}
+
+.inputLabel {
+    font-size: 1.25em;
+    margin-bottom: 1%;
+    text-align: justify;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+}
+
+.reasonTextarea {
+    width: 28em;
+    height: 12em;
+    background-color: #131D24;
+    color: #ffffff;
+    font-size: 1.25em;
+    font-family: 'Liberation sans', 'Helvetica', 'Verdana', sans-serif;
 }
 
 img {

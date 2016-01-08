@@ -1,15 +1,16 @@
 package com.samikallio.exercise.user;
 
+import com.samikallio.exercise.job.ApplyingReasonEntity;
 import javax.ejb.EJB;
+import javax.faces.bean.RequestScoped;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
 
 /**
  * This is bean, which manages user information in the JSF-pages
  * 
  * @author Sami Kallio <sami.m.j.kallio at student.jyu.fi>
  */
-@Named(value = "userBean")
+@Named("userBean")
 @RequestScoped
 public class UserManagedBean {
     
@@ -24,12 +25,18 @@ public class UserManagedBean {
      */
     private UserEntity userEntity;
     
+    /**
+     * Entity that represents the data of reason for applying the job 
+     * in the database
+     */
+    private ApplyingReasonEntity reasonEntity;
+    
     /*
      * Variables for webpage information 
      */
     private String firstName;
     private String lastName;
-    private Boolean isFemale;
+    private String gender="Male";
     private String reasonForApplying;
 
     public UserManagedBean() {
@@ -52,12 +59,12 @@ public class UserManagedBean {
         this.lastName = lastName;
     }
 
-    public Boolean getIsFemale() {
-        return isFemale;
+    public String getGender() {
+        return gender;
     }
 
-    public void setIsFemale(Boolean isFemale) {
-        this.isFemale = isFemale;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getReasonForApplying() {

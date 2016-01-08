@@ -1,6 +1,6 @@
 package com.samikallio.exercise.user;
 
-import com.samikallio.exercise.job.ApplyingReason;
+import com.samikallio.exercise.job.ApplyingReasonEntity;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -27,7 +27,7 @@ public class UserEntity implements Serializable {
     private Boolean isFemale;
     
     @OneToOne
-    private ApplyingReason reason;
+    private ApplyingReasonEntity reason;
 
     public Integer getId() {
         return id;
@@ -61,11 +61,11 @@ public class UserEntity implements Serializable {
         this.isFemale = isFemale;
     }
 
-    public ApplyingReason getReason() {
+    public ApplyingReasonEntity getReason() {
         return reason;
     }
 
-    public void setReason(ApplyingReason reason) {
+    public void setReason(ApplyingReasonEntity reason) {
         this.reason = reason;
     }
 
