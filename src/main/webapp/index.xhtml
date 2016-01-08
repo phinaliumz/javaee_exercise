@@ -18,17 +18,28 @@
         </f:view>
         <h:panelGroup>
             <h:form>
-                <h:outputLabel>#{messages.firstName}</h:outputLabel>
-                <h:inputText></h:inputText>
-                <h:outputLabel>#{messages.lastName}</h:outputLabel>
-                <h:inputText></h:inputText>
-                <h:outputLabel>#{messages.gender}</h:outputLabel>
-                <h:selectOneRadio>
-                    <f:selectItem itemLabel="#{messages.male}"/>
-                    <f:selectItem itemLabel="#{messages.female}"/>
-                </h:selectOneRadio>
-                <h:outputLabel>#{messages.whyAreYouApplying}</h:outputLabel>
-                <h:inputTextarea></h:inputTextarea>
+                <h:panelGroup layout="block">
+                    <h:outputLabel value="#{messages.firstName}" for="firstName"/>
+                    <h:inputText id="firstName" value="#{userBean.firstName}"></h:inputText>
+                </h:panelGroup>
+                
+                <h:panelGroup layout="block">
+                    <h:outputLabel>#{messages.lastName}</h:outputLabel>
+                    <h:inputText></h:inputText>
+                </h:panelGroup>
+                
+                <h:panelGroup layout="block">
+                    <h:outputLabel>#{messages.gender}</h:outputLabel>
+                    <h:selectOneRadio>
+                        <f:selectItem itemLabel="#{messages.male}"/>
+                        <f:selectItem itemLabel="#{messages.female}"/>
+                    </h:selectOneRadio>
+                </h:panelGroup>
+                
+                <h:panelGroup layout="block">
+                    <h:outputLabel>#{messages.whyAreYouApplying}</h:outputLabel>
+                    <h:inputTextarea></h:inputTextarea>
+                </h:panelGroup>
             </h:form>
         </h:panelGroup>
     </h:body>

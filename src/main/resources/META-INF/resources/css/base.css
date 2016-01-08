@@ -18,6 +18,14 @@ body {
     font-family: 'Liberation sans', 'Helvetica', 'Verdana', sans-serif;
 }
 
+input[type=text] {
+    color: #ffffff;
+    background-color: #131D24;
+    height: 35px;
+    width: 12em;
+    font-size: 1.25em;
+}
+
 img {
     max-width: 100%;
 }
