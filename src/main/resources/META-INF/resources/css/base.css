@@ -26,6 +26,11 @@ input[type=text] {
     font-size: 1.25em;
 }
 
+.inputPanel {
+    width: 100%;
+    margin-bottom: 1.25%;
+}
+
 img {
     max-width: 100%;
 }

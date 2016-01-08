@@ -18,17 +18,17 @@
         </f:view>
         <h:panelGroup>
             <h:form>
-                <h:panelGroup layout="block">
-                    <h:outputLabel value="#{messages.firstName}" for="firstName"/>
+                <h:panelGroup layout="block" styleClass="inputPanel">
+                    <h:outputLabel id="firstNameLabel" value="#{messages.firstName}" for="firstName"/>
                     <h:inputText id="firstName" value="#{userBean.firstName}"></h:inputText>
                 </h:panelGroup>
                 
-                <h:panelGroup layout="block">
+                <h:panelGroup layout="block" styleClass="inputPanel">
                     <h:outputLabel>#{messages.lastName}</h:outputLabel>
                     <h:inputText></h:inputText>
                 </h:panelGroup>
                 
-                <h:panelGroup layout="block">
+                <h:panelGroup layout="block" styleClass="inputPanel">
                     <h:outputLabel>#{messages.gender}</h:outputLabel>
                     <h:selectOneRadio>
                         <f:selectItem itemLabel="#{messages.male}"/>
@@ -36,7 +36,7 @@
                     </h:selectOneRadio>
                 </h:panelGroup>
                 
-                <h:panelGroup layout="block">
+                <h:panelGroup layout="block" styleClass="inputPanel">
                     <h:outputLabel>#{messages.whyAreYouApplying}</h:outputLabel>
                     <h:inputTextarea></h:inputTextarea>
                 </h:panelGroup>
