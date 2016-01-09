@@ -16,3 +16,8 @@ nb-configuration.xml
 
 # Target-folder is not needed
 target/
+
+# Ignore Eclipse specific files
+.classpath
+.project
+.settings/
