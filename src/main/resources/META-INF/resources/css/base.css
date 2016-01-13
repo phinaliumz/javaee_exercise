@@ -40,7 +40,7 @@ input[type=text] {
 
 .inputLabel {
     font-size: 1.25em;
-    margin-bottom: 1%;
+    margin-bottom: 0.5%;
     text-align: justify;
     display: block;
     font-family: 'Roboto', sans-serif;

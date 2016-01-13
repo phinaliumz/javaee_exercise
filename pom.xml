@@ -36,6 +36,11 @@
             <version>7.0</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.openejb</groupId>
+            <artifactId>openejb-core</artifactId>
+            <version>4.7.3</version>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>7.0</version>
@@ -53,6 +58,10 @@
                 <configuration>
                   <tomeeVersion>1.7.1</tomeeVersion>
                   <tomeeClassifier>plus</tomeeClassifier>
+                  <tomeeHttpPort>8080</tomeeHttpPort>
+                  <tomeeHost>localhost</tomeeHost>
+                  <path>${project.build.directory}/${project.build.finalName}</path>
+                  <reloadOnUpdate>true</reloadOnUpdate>
                 </configuration>
             </plugin>
             <plugin>

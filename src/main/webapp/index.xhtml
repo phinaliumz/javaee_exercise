@@ -18,7 +18,9 @@
         <f:view>
             <f:loadBundle basename="com.samikallio.exercise.messages.Messages" var="messages"/>
         </f:view>
-        <client:companylogo/>
+        <h:panelGroup style="margin-top: 10.5em;">
+            <client:companylogo/>
+        </h:panelGroup>
         <h:panelGroup>
             <h:form>
                 <h:panelGroup layout="block" styleClass="inputPanel">
@@ -45,6 +47,8 @@
                 </h:panelGroup>
             </h:form>
         </h:panelGroup>
-        <client:copyright/>
+        <h:panelGroup style="margin-top: 1.5em;">
+            <client:copyright/>
+        </h:panelGroup>
     </h:body>
 </html>
