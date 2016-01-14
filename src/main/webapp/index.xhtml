@@ -42,7 +42,8 @@
                 
                 <h:panelGroup layout="block" styleClass="inputPanel">
                     <h:outputLabel id="reasonLabel" value="#{messages.whyAreYouApplying}" for="reason" styleClass="inputLabel"/>
-                    <h:inputTextarea id="reason" value="#{userBean.reasonForApplying}" styleClass="reasonTextarea"></h:inputTextarea>
+                    <h:inputTextarea id="reason" value="#{userBean.reasonForApplying}" styleClass="reasonTextarea"
+                                     pt:placeholder="#{messages.pleaseFillMe}"></h:inputTextarea>
                 </h:panelGroup>
             </h:form>
         </h:panelGroup>

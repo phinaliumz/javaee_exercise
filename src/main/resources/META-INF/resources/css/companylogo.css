@@ -7,10 +7,17 @@ style file could be customized to different clients.
 
 This file customizes the logo-header.
 */
-@import url('https://fonts.googleapis.com/css?family=Roboto:700|Ubuntu');
 
 .companyLogo {
-    background-color: blue;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     height: 100%;
+}
+
+.companyText {
+    font-family: "Ubuntu", sans-serif;
+    font-size: 2.5em;
+    font-weight: bold;
 }
 

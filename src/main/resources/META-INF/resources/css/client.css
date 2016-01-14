@@ -8,12 +8,14 @@ style file could be customized to different clients.
 This file customizes the page, except the header (logo) and footer(copyright)
 */
 
-/*
-* Fancy fonts from Google Font API
-*/
-@import url('https://fonts.googleapis.com/css?family=Roboto:700|Ubuntu');
-
 .copyrightNotice {
-    background-color: red;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     height: 100%;
+}
+
+.copyrightText {
+    font-family: monospace;
+    font-size: 1.15em;
 }
