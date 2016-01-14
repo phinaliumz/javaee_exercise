@@ -3,6 +3,9 @@
 * It defines to body background and styling for other
 * common elements
 */
+html {
+    height: 98%;
+}
 
 body {
     color: #ffffff;
@@ -16,12 +19,22 @@ body {
     background-size: 100%;
     background-attachment: fixed;
     font-family: 'Liberation sans', 'Helvetica', 'Verdana', sans-serif;
+    height: 100%;
+}
+
+.companyInfo {
+    height: 10%;
+}
+
+.copyrightInfo {
+    height: 5%;
+    float: bottom;
 }
 
 input[type=text] {
     color: #ffffff;
     background-color: #131D24;
-    height: 35px;
+    height: 2em;
     width: 12em;
     font-size: 1.25em;
     font-family: 'Ubuntu', sans-serif;
@@ -34,8 +47,10 @@ input[type=text] {
 
 .content {
     width: 80%;
+    height: 75%;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 4.5%;
 }
 
 .inputLabel {

@@ -10,7 +10,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <h:outputStylesheet library="css" name="base.css"/>
-        <h:outputStylesheet library="css/customcss" name="clientcss.css"/>
         <title>#{messages.applicationTitle}</title>
     </h:head>
 
@@ -18,10 +17,10 @@
         <f:view>
             <f:loadBundle basename="com.samikallio.exercise.messages.Messages" var="messages"/>
         </f:view>
-        <h:panelGroup style="margin-top: 10.5em;">
+        <h:panelGroup styleClass="companyInfo" layout="block">
             <client:companylogo/>
         </h:panelGroup>
-        <h:panelGroup>
+        <h:panelGroup styleClass="content" layout="block">
             <h:form>
                 <h:panelGroup layout="block" styleClass="inputPanel">
                     <h:outputLabel id="firstNameLabel" value="#{messages.firstName}" for="firstName" styleClass="inputLabel"/>
@@ -47,7 +46,7 @@
                 </h:panelGroup>
             </h:form>
         </h:panelGroup>
-        <h:panelGroup style="margin-top: 1.5em;">
+        <h:panelGroup styleClass="copyrightInfo" layout="block">
             <client:copyright/>
         </h:panelGroup>
     </h:body>

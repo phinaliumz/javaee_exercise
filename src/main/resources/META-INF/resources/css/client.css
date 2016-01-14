@@ -5,7 +5,15 @@ which wants to use the recruiting page -service.
 For this exercise, it contains only basic stuff. The idea is that the 
 style file could be customized to different clients.
 
-This file customizes the logo-header.
+This file customizes the page, except the header (logo) and footer(copyright)
 */
 
+/*
+* Fancy fonts from Google Font API
+*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:700|Ubuntu');
 
+.copyrightNotice {
+    background-color: red;
+    height: 100%;
+}

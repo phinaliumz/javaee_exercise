@@ -14,7 +14,9 @@ header for the client
 
     <!-- IMPLEMENTATION -->
     <cc:implementation>
-        <h:outputStylesheet library="css/customcss" name="companylogo.css"/>
-        <h:outputText value="COMPANY LOGO"/>
+        <h:outputStylesheet library="css" name="companylogo.css"/>
+        <h:panelGroup styleClass="companyLogo" layout="block">
+            <h:outputText value="COMPANY LOGO"/>
+        </h:panelGroup>
     </cc:implementation>
 </html>
