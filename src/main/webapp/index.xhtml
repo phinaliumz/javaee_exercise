@@ -16,20 +16,32 @@
     <h:body>
         <f:view>
             <f:loadBundle basename="com.samikallio.exercise.messages.Messages" var="messages"/>
+            <f:loadBundle basename="com.samikallio.exercise.messages.CustomStrings" var="customMessages"/>
         </f:view>
         <h:panelGroup styleClass="companyInfo" layout="block">
             <client:companylogo/>
         </h:panelGroup>
         <h:panelGroup styleClass="content" layout="block">
+            <h:panelGroup styleClass="whatIsThisPage" layout="block">
+                <h:outputText value="#{customMessages.recruitmentCampaign}"/>
+            </h:panelGroup>
             <h:form>
                 <h:panelGroup layout="block" styleClass="inputPanel">
                     <h:outputLabel id="firstNameLabel" value="#{messages.firstName}" for="firstName" styleClass="inputLabel"/>
-                    <h:inputText id="firstName" value="#{userBean.firstName}" pt:placeholder="#{messages.pleaseFillMe}"></h:inputText>
+                    <h:inputText id="firstName" value="#{userBean.firstName}" pt:placeholder="#{messages.pleaseFillMe}"
+                                 validator="#{NameValidatorBean.validateFirstname}">
+                        <f:ajax event="keyup" render="firstNameError" immediate="false"/>
+                    </h:inputText>
+                    <h:message showSummary="true" showDetail="false" styleClass="errors" id="firstNameError" for="firstName"/>
                 </h:panelGroup>
                 
                 <h:panelGroup layout="block" styleClass="inputPanel">
                     <h:outputLabel id="lastNameLabel" value="#{messages.lastName}" for="lastName" styleClass="inputLabel"/>
-                    <h:inputText id="lastName" value="#{userBean.lastName}" pt:placeholder="#{messages.pleaseFillMe}"></h:inputText>
+                    <h:inputText id="lastName" value="#{userBean.lastName}" pt:placeholder="#{messages.pleaseFillMe}"
+                                 validator="#{NameValidatorBean.validateLastname}">
+                        <f:ajax event="keyup" render="lastNameError" immediate="false"/>
+                    </h:inputText>
+                    <h:message showSummary="true" showDetail="false" styleClass="errors" id="lastNameError" for="lastName"/>
                 </h:panelGroup>
                 
                 <h:panelGroup layout="block" styleClass="inputPanel">
@@ -43,7 +55,10 @@
                 <h:panelGroup layout="block" styleClass="inputPanel">
                     <h:outputLabel id="reasonLabel" value="#{messages.whyAreYouApplying}" for="reason" styleClass="inputLabel"/>
                     <h:inputTextarea id="reason" value="#{userBean.reasonForApplying}" styleClass="reasonTextarea"
-                                     pt:placeholder="#{messages.pleaseFillMe}"></h:inputTextarea>
+                                     pt:placeholder="#{messages.pleaseFillMe}" validator="#{reasonValidatorBean.validateReason}">
+                        <f:ajax event="keyup" render="reasonError" immediate="false"/>
+                    </h:inputTextarea>
+                    <h:message showSummary="true" showDetail="false" styleClass="errors" id="reasonError" for="reason"/>
                 </h:panelGroup>
             </h:form>
         </h:panelGroup>

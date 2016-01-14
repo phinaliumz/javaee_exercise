@@ -6,8 +6,7 @@ to the footer of the recruitment page
 -->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:composite="http://xmlns.jcp.org/jsf/composite"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
 
     <!-- INTERFACE -->
     <composite:interface>
@@ -16,9 +15,6 @@ to the footer of the recruitment page
     <!-- IMPLEMENTATION -->
     <composite:implementation>
         <h:outputStylesheet library="css" name="client.css"/>
-        <f:view>
-            <f:loadBundle basename="com.samikallio.exercise.messages.CustomStrings" var="customMessages"/>
-        </f:view>
         <h:panelGroup styleClass="copyrightNotice" layout="block">
             <h:outputText value="#{copyrightBean.copyrightClause} #{customMessages.companyName}" styleClass="copyrightText"/>
         </h:panelGroup>

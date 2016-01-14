@@ -75,3 +75,17 @@ input[type=text] {
     font-size: 1.25em;
     font-family: 'Ubuntu', sans-serif;
 }
+
+.whatIsThisPage {
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+    font-size: 1.15em;
+    margin-bottom: 1.5em;
+}
+
+.errors {
+    color: #ff0033;
+    margin-left: 1.5em;
+    font-family: monospace;
+    font-size: 1.25em;
+}
