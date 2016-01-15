@@ -58,7 +58,7 @@
                                      pt:placeholder="#{messages.pleaseFillMe}" validator="#{reasonValidatorBean.validateReason}">
                         <f:ajax event="keyup" render="reasonError" immediate="false"/>
                     </h:inputTextarea>
-                    <h:message showSummary="true" showDetail="false" styleClass="errors" id="reasonError" for="reason"/>
+                    <h:message showSummary="true" showDetail="false" errorClass="errors" id="reasonError" for="reason"/>
                 </h:panelGroup>
             </h:form>
         </h:panelGroup>

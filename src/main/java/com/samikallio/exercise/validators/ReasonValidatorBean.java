@@ -1,29 +1,45 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This bean validates the reason that user enters for why applying the job
  */
 package com.samikallio.exercise.validators;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.faces.application.FacesMessage;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
+import com.sun.istack.logging.Logger;
+import javax.faces.component.UIComponent;
+import javax.faces.component.UIInput;
+import javax.faces.context.FacesContext;
 
 /**
  *
- * @author sami
+ * @author Sami Kallio <sami.m.j.kallio at student.jyu.fi>
  */
 @Named(value = "reasonValidatorBean")
 @RequestScoped
 public class ReasonValidatorBean {
+	
+	private final static Logger LOGGER = Logger.getLogger(ReasonValidatorBean.class);
+	
+	/*
+	 * These are the maximum and minimun limits for the reason. 
+	 * There are not based on any research, I just got them out of my hat 
+	 */
+	private final static MIN_LENGTH = 1;
+	private final static MAX_LENGTH = 1000;
+	
+	private final Pattern reasonPattern;
+    private Matcher matcher;
 
-    /**
-     * Creates a new instance of ReasonValidatorBean
-     */
     public ReasonValidatorBean() {
         
     }
     
-    public void validateReason() {
+    public void validateReason(FacesContext c, UIComponent toValidate, Object value) {
         
     }
     
