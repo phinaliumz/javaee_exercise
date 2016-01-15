@@ -29,19 +29,19 @@
                 <h:panelGroup layout="block" styleClass="inputPanel">
                     <h:outputLabel id="firstNameLabel" value="#{messages.firstName}" for="firstName" styleClass="inputLabel"/>
                     <h:inputText id="firstName" value="#{userBean.firstName}" pt:placeholder="#{messages.pleaseFillMe}"
-                                 validator="#{NameValidatorBean.validateFirstname}">
+                                 validator="#{NameValidatorBean.validateName}">
                         <f:ajax event="keyup" render="firstNameError" immediate="false"/>
                     </h:inputText>
-                    <h:message showSummary="true" showDetail="false" styleClass="errors" id="firstNameError" for="firstName"/>
+                    <h:message showSummary="true" showDetail="false" errorClass="errors" infoClass="ok" id="firstNameError" for="firstName"/>
                 </h:panelGroup>
                 
                 <h:panelGroup layout="block" styleClass="inputPanel">
                     <h:outputLabel id="lastNameLabel" value="#{messages.lastName}" for="lastName" styleClass="inputLabel"/>
                     <h:inputText id="lastName" value="#{userBean.lastName}" pt:placeholder="#{messages.pleaseFillMe}"
-                                 validator="#{NameValidatorBean.validateLastname}">
+                                 validator="#{NameValidatorBean.validateName}">
                         <f:ajax event="keyup" render="lastNameError" immediate="false"/>
                     </h:inputText>
-                    <h:message showSummary="true" showDetail="false" styleClass="errors" id="lastNameError" for="lastName"/>
+                    <h:message showSummary="true" showDetail="false" errorClass="errors" infoClass="ok" id="lastNameError" for="lastName"/>
                 </h:panelGroup>
                 
                 <h:panelGroup layout="block" styleClass="inputPanel">
