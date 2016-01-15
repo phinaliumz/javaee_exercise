@@ -97,12 +97,18 @@ public class NameValidatorBean {
             
             for (int i = 0; i < splittedName.length; i++) {
                 if (!nameMatchesValidationRules(splittedName[i])) {
+                    LOGGER.log(Level.SEVERE, "splittedName[" + i + "] was not valid! -> " + splittedName[i]);
                     if(i > 0) {
                         return VALIDATION_ERROR_IN_SPLIT_NAMES;
                     } else 
                         return VALIDATION_ERROR;
+                } else {
+                    LOGGER.log(Level.INFO, "splittedName[" + i + "] was ok -> " + splittedName[i]);
                 }
+                
             }
+            
+            LOGGER.log(Level.INFO, "Out of for-loop");
             
             /*
             * If we got so far, the names were ok. Now we just have to check
@@ -113,10 +119,11 @@ public class NameValidatorBean {
                 return VALIDATION_ERROR;
         }
         
+        LOGGER.log(Level.INFO, "I'm going to return \"OK\"");
         return OK;
     }
     
-    public void validateName(FacesContext c, UIComponent toValidate, Object value) {
+    private void validateName(FacesContext c, UIComponent toValidate, Object value) {
         
         String input = (String)value;
         /*
@@ -128,6 +135,7 @@ public class NameValidatorBean {
         switch(validateName(input)) {
             case OK:
                 //nothing needs to be done, name was ok
+                LOGGER.log(Level.INFO, "Everything was ok");
             break;
             
             case TOO_LONG:
@@ -152,13 +160,28 @@ public class NameValidatorBean {
                    
         }
         
+        LOGGER.log(Level.INFO, "Out of switch, isValidMessage -> " + isValidMessage);
+        
         ((UIInput)toValidate).setValid(isValidMessage);
         
-        if(!((UIInput)toValidate).isValid()) {
+        LOGGER.log(Level.INFO, "toValidate set to isValid");
+        
+        if(!isValidMessage) {
             c.addMessage(toValidate.getClientId(c), message);
+            LOGGER.log(Level.SEVERE, "toValidate was not valid");
         } else {
-            c.addMessage(toValidate.getClientId(c), nameValidatedOk(resources.getString(VALIDATED_OK)));
+            LOGGER.log(Level.INFO, "In the else");
+            c.addMessage(toValidate.getClientId(c), nameValidatedOk(VALIDATED_OK));
+            LOGGER.log(Level.INFO, "toValidate was valid");
         }
+    }
+    
+    public void validateFirstName(FacesContext c, UIComponent toValidate, Object value) {
+        validateName(c, toValidate, value);
+    }
+    
+    public void validateLastName(FacesContext c, UIComponent toValidate, Object value) {
+        validateName(c, toValidate, value);
     }
     
     private FacesMessage nameValidationError(String msg) {
