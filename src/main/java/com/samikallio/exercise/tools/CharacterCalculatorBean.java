@@ -51,7 +51,9 @@ public class CharacterCalculatorBean implements Serializable {
     public void charTyped(AjaxBehaviorEvent event) {
         String content = (String)reasonArea.getValue();
         typedChars = content.length();
-        String charactersLeftMessage = Integer.toString(MAX_CHARS - typedChars) + " " + resources.getString(CHARACTERS_LEFT_MESSAGE);
+        String charactersLeftMessage = "(" + 
+			Integer.toString(MAX_CHARS - typedChars) + " " + resources.getString(CHARACTERS_LEFT_MESSAGE)
+			+ ")";
         
         //50 percent chars left = PLENTY_CHARACTERS_LEFT
         if(MAX_CHARS - typedChars > MAX_CHARS * 0.5) {

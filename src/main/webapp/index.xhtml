@@ -53,16 +53,24 @@
                 </h:panelGroup>
                 
                 <h:panelGroup layout="block" styleClass="inputPanel">
-                    <h:outputLabel id="reasonLabel" value="#{messages.whyAreYouApplying}" for="reason" styleClass="inputLabel"/>
-                    <h:inputTextarea id="reason" value="#{userBean.reasonForApplying}" styleClass="reasonTextarea"
-                                     pt:placeholder="#{messages.pleaseFillMe}" binding="#{characterCalculatorBean.reasonArea}">
-                        <f:ajax listener="#{characterCalculatorBean.charTyped}" render="charsLeft" event="keyup"/>
-                    </h:inputTextarea>
+					<h:panelGroup layout="block" styleClass="messageAreaTop">
+						<h:panelGroup styleClass="reasonPanel">
+							<h:outputLabel id="reasonLabel" value="#{messages.whyAreYouApplying}" for="reason"/>
+						</h:panelGroup>
+							<h:message showSummary="true" showDetail="false" styleClass="charactersLeftCommonAttributes" 
+								   errorClass="noCharactersLeft" warnClass="notMuchCharactersLeft" infoClass="plentyCharactersLeft" 
+								   id="charsLeft" for="reason"/>
+					</h:panelGroup>
+					
+                    <h:panelGroup layout="block">
+						<h:inputTextarea id="reason" value="#{userBean.reasonForApplying}" styleClass="reasonTextarea"
+										 pt:placeholder="#{messages.pleaseFillMe}" binding="#{characterCalculatorBean.reasonArea}">
+							<f:ajax listener="#{characterCalculatorBean.charTyped}" render="charsLeft" event="keyup"/>
+						</h:inputTextarea>
+                    </h:panelGroup>
                 </h:panelGroup>
                 <h:panelGroup layout="block" styleClass="inputPanel">
-                    <h:message showSummary="true" showDetail="false" styleClass="charactersLeftCommonAttributes" 
-                               errorClass="noCharactersLeft" warnClass="notMuchCharactersLeft" infoClass="plentyCharactersLeft" 
-                               id="charsLeft" for="reason"/>
+					<h:commandButton value="Submit"/>
                 </h:panelGroup>
             </h:form>
         </h:panelGroup>
