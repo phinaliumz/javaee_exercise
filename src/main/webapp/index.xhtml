@@ -58,7 +58,11 @@
                                      pt:placeholder="#{messages.pleaseFillMe}" binding="#{characterCalculatorBean.reasonArea}">
                         <f:ajax listener="#{characterCalculatorBean.charTyped}" render="charsLeft" event="keyup"/>
                     </h:inputTextarea>
-                    <h:message showSummary="true" showDetail="false" errorClass="errors" infoClass="ok" id="charsLeft" for="reason"/>
+                </h:panelGroup>
+                <h:panelGroup layout="block" styleClass="inputPanel">
+                    <h:message showSummary="true" showDetail="false" styleClass="charactersLeftCommonAttributes" 
+                               errorClass="noCharactersLeft" warnClass="notMuchCharactersLeft" infoClass="plentyCharactersLeft" 
+                               id="charsLeft" for="reason"/>
                 </h:panelGroup>
             </h:form>
         </h:panelGroup>

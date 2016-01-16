@@ -8,6 +8,8 @@ import com.sun.istack.logging.Logger;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.logging.Level;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
@@ -24,26 +26,56 @@ import javax.faces.event.AjaxBehaviorEvent;
 public class CharacterCalculatorBean implements Serializable {
     
     private final static Logger LOGGER = Logger.getLogger(CharacterCalculatorBean.class);
-    private static final int MAX_CHARS = 500;
+    private final static String CHARACTERS_LEFT_MESSAGE = "charactersLeft";
+    
+    private static final int MAX_CHARS = 100;
+    private static final int PLENTY_CHARACTERS_LEFT = 0;
+    private static final int NOT_MUCH_CHARACTERS_LEFT = -1;
+    private static final int NO_CHARACTERS_LEFT = -2;
     
     private HtmlInputTextarea reasonArea;
 
     private int typedChars = 0;
+    private int messageType = 0;
     
     private FacesMessage message;
-    private FacesContext context;
+    
+    private final ResourceBundle resources;
     
     public CharacterCalculatorBean() {
-        
+        Locale locale = FacesContext.getCurrentInstance().getViewRoot().getLocale();
+        resources = ResourceBundle.getBundle(
+                "com.samikallio.exercise.messages.Messages", locale);
     }
     
     public void charTyped(AjaxBehaviorEvent event) {
         String content = (String)reasonArea.getValue();
         typedChars = content.length();
-        LOGGER.log(Level.INFO, "content -> " + content + ", content.length -> " + typedChars);
-        message = new FacesMessage(FacesMessage.SEVERITY_INFO, Integer.toString(MAX_CHARS - typedChars), null);
-        context = FacesContext.getCurrentInstance();
-        context.addMessage(reasonArea.getClientId(context), message);
+        String charactersLeftMessage = Integer.toString(MAX_CHARS - typedChars) + " " + resources.getString(CHARACTERS_LEFT_MESSAGE);
+        
+        //50 percent chars left = PLENTY_CHARACTERS_LEFT
+        if(MAX_CHARS - typedChars > MAX_CHARS * 0.5) {
+            messageType = PLENTY_CHARACTERS_LEFT;
+        } else if(MAX_CHARS - typedChars > MAX_CHARS * 0.25) { //25 percent chars left = NOT_MUCH_CHARACTERS_LEFT
+            messageType = NOT_MUCH_CHARACTERS_LEFT;
+        } else if((MAX_CHARS - typedChars) < 0) { //zero chars left = NO_CHARACTERS_LEFT
+            messageType = NO_CHARACTERS_LEFT;
+        }
+        
+        switch(messageType) {
+            case PLENTY_CHARACTERS_LEFT: 
+                message = new FacesMessage(FacesMessage.SEVERITY_INFO, charactersLeftMessage, null);
+            break;
+            case NOT_MUCH_CHARACTERS_LEFT:
+                message = new FacesMessage(FacesMessage.SEVERITY_WARN, charactersLeftMessage, null);
+            break;
+            case NO_CHARACTERS_LEFT:
+                message = new FacesMessage(FacesMessage.SEVERITY_ERROR, charactersLeftMessage, null);
+            break;
+        }
+        
+        
+        FacesContext.getCurrentInstance().addMessage(reasonArea.getClientId(FacesContext.getCurrentInstance()), message);
     }
 
     public HtmlInputTextarea getReasonArea() {

@@ -97,3 +97,22 @@ input[type=text] {
     font-size: 1.25em;
     font-weight: bold;
 }
+
+.charactersLeftCommonAttributes {
+    margin-left: 0em;
+    font-family: monospace;
+    font-size: 1.25em;
+} 
+
+.charactersLeftCommonAttributes, .plentyCharactersLeft {
+    color: #66ff00;
+}
+
+charactersLeftCommonAttributes, .notMuchCharactersLeft {
+    color: #ff5353;
+}
+
+charactersLeftCommonAttributes, .noCharactersLeft {
+    color: #ff0033;
+    font-weight: bold;
+}
