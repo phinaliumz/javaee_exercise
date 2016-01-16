@@ -55,10 +55,10 @@
                 <h:panelGroup layout="block" styleClass="inputPanel">
                     <h:outputLabel id="reasonLabel" value="#{messages.whyAreYouApplying}" for="reason" styleClass="inputLabel"/>
                     <h:inputTextarea id="reason" value="#{userBean.reasonForApplying}" styleClass="reasonTextarea"
-                                     pt:placeholder="#{messages.pleaseFillMe}" validator="#{reasonValidatorBean.validateReason}">
-                        <f:ajax event="keyup" render="reasonError" immediate="false"/>
+                                     pt:placeholder="#{messages.pleaseFillMe}" binding="#{characterCalculatorBean.reasonArea}">
+                        <f:ajax listener="#{characterCalculatorBean.charTyped}" render="charsLeft" event="keyup"/>
                     </h:inputTextarea>
-                    <h:message showSummary="true" showDetail="false" errorClass="errors" id="reasonError" for="reason"/>
+                    <h:message showSummary="true" showDetail="false" errorClass="errors" infoClass="ok" id="charsLeft" for="reason"/>
                 </h:panelGroup>
             </h:form>
         </h:panelGroup>

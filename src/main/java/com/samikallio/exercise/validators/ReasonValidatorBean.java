@@ -23,17 +23,20 @@ import javax.faces.context.FacesContext;
 @RequestScoped
 public class ReasonValidatorBean {
 	
-	private final static Logger LOGGER = Logger.getLogger(ReasonValidatorBean.class);
+    private final static Logger LOGGER = Logger.getLogger(ReasonValidatorBean.class);
+
+    /*
+     * These are the maximum and minimun limits for the reason. 
+     * There are not based on any research, I just got them out of my hat 
+     */
+    private final static int MIN_LENGTH = 1;
+    private final static int MAX_LENGTH = 1000;
 	
-	/*
-	 * These are the maximum and minimun limits for the reason. 
-	 * There are not based on any research, I just got them out of my hat 
-	 */
-	private final static MIN_LENGTH = 1;
-	private final static MAX_LENGTH = 1000;
-	
-	private final Pattern reasonPattern;
+    private Pattern reasonPattern;
+        
     private Matcher matcher;
+    
+    private FacesMessage message;
 
     public ReasonValidatorBean() {
         
