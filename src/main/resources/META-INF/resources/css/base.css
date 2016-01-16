@@ -13,10 +13,6 @@ html {
     
 }
 
-@media screen and (max-width: 1024px) {
-
-}
-
 body {
     color: #ffffff;
     background-color: #131D24;
@@ -33,12 +29,13 @@ body {
 }
 
 .companyInfo {
-    height: 10%;
+    height: 4em;
+    width: 100%;
 }
 
 .copyrightInfo {
     height: 5%;
-    float: bottom;
+    margin-top: 5em;
 }
 
 input[type=text] {
@@ -63,15 +60,19 @@ input[type=text] {
     margin-top: 4.5%;
 }
 
+.reasonForm {
+    margin-top: 1.5em;
+}
+
 .messageAreaTop {
-	width: 100%;
-	height: 2em;
-	font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: 2em;
+    font-family: 'Roboto', sans-serif;
 }
 
 .reasonPanel {
-	margin-right: 0.95em;
-	font-size: 1.25em;
+    margin-right: 0.95em;
+    font-size: 1.25em;
 }
 
 .inputLabel {
@@ -96,6 +97,7 @@ input[type=text] {
     font-style: italic;
     font-size: 1.15em;
     margin-bottom: 1.5em;
+    width: 100%;
 }
 
 .errors {
@@ -122,11 +124,28 @@ input[type=text] {
     color: #66ff00;
 }
 
-charactersLeftCommonAttributes, .notMuchCharactersLeft {
+.charactersLeftCommonAttributes, .notMuchCharactersLeft {
     color: #ff5353;
 }
 
-charactersLeftCommonAttributes, .noCharactersLeft {
+.charactersLeftCommonAttributes, .noCharactersLeft {
     color: #ff0033;
     font-weight: bold;
+}
+
+.submitButton {
+    width: 5.0em;
+    height: 2.5em;
+    border: 0.10em solid #ffffff;
+    background-color: transparent;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: bold;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.submitButton:hover {
+    background: #ffffff;
+    color: #000000;
 }

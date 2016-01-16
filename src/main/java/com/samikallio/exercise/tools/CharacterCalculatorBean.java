@@ -10,9 +10,7 @@ import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
 import javax.faces.application.FacesMessage;
-import javax.faces.component.UIComponent;
 import javax.faces.component.html.HtmlInputTextarea;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
@@ -28,7 +26,7 @@ public class CharacterCalculatorBean implements Serializable {
     private final static Logger LOGGER = Logger.getLogger(CharacterCalculatorBean.class);
     private final static String CHARACTERS_LEFT_MESSAGE = "charactersLeft";
     
-    private static final int MAX_CHARS = 100;
+    private static final int MAX_CHARS = 500;
     private static final int PLENTY_CHARACTERS_LEFT = 0;
     private static final int NOT_MUCH_CHARACTERS_LEFT = -1;
     private static final int NO_CHARACTERS_LEFT = -2;

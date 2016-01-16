@@ -25,54 +25,56 @@
             <h:panelGroup styleClass="whatIsThisPage" layout="block">
                 <h:outputText value="#{customMessages.recruitmentCampaign}"/>
             </h:panelGroup>
-            <h:form>
-                <h:panelGroup layout="block" styleClass="inputPanel">
-                    <h:outputLabel id="firstNameLabel" value="#{messages.firstName}" for="firstName" styleClass="inputLabel"/>
-                    <h:inputText id="firstName" value="#{userBean.firstName}" pt:placeholder="#{messages.pleaseFillMe}"
-                                 validator="#{NameValidatorBean.validateFirstName}">
-                        <f:ajax event="keyup" render="firstNameError" immediate="false"/>
-                    </h:inputText>
-                    <h:message showSummary="true" showDetail="false" errorClass="errors" infoClass="ok" id="firstNameError" for="firstName"/>
-                </h:panelGroup>
-                
-                <h:panelGroup layout="block" styleClass="inputPanel">
-                    <h:outputLabel id="lastNameLabel" value="#{messages.lastName}" for="lastName" styleClass="inputLabel"/>
-                    <h:inputText id="lastName" value="#{userBean.lastName}" pt:placeholder="#{messages.pleaseFillMe}"
-                                 validator="#{NameValidatorBean.validateLastName}">
-                        <f:ajax event="keyup" render="lastNameError" immediate="false"/>
-                    </h:inputText>
-                    <h:message showSummary="true" showDetail="false" errorClass="errors" infoClass="ok" id="lastNameError" for="lastName"/>
-                </h:panelGroup>
-                
-                <h:panelGroup layout="block" styleClass="inputPanel">
-                    <h:outputLabel id="genderLabel" value="#{messages.gender}" for="gender" styleClass="inputLabel"/>
-                    <h:selectOneRadio id="gender" value="#{userBean.gender}">
-                        <f:selectItem itemLabel="#{messages.male}" itemValue="Male"/>
-                        <f:selectItem itemLabel="#{messages.female}" itemValue="Female"/>
-                    </h:selectOneRadio>
-                </h:panelGroup>
-                
-                <h:panelGroup layout="block" styleClass="inputPanel">
-					<h:panelGroup layout="block" styleClass="messageAreaTop">
-						<h:panelGroup styleClass="reasonPanel">
-							<h:outputLabel id="reasonLabel" value="#{messages.whyAreYouApplying}" for="reason"/>
-						</h:panelGroup>
-							<h:message showSummary="true" showDetail="false" styleClass="charactersLeftCommonAttributes" 
-								   errorClass="noCharactersLeft" warnClass="notMuchCharactersLeft" infoClass="plentyCharactersLeft" 
-								   id="charsLeft" for="reason"/>
-					</h:panelGroup>
-					
-                    <h:panelGroup layout="block">
-						<h:inputTextarea id="reason" value="#{userBean.reasonForApplying}" styleClass="reasonTextarea"
-										 pt:placeholder="#{messages.pleaseFillMe}" binding="#{characterCalculatorBean.reasonArea}">
-							<f:ajax listener="#{characterCalculatorBean.charTyped}" render="charsLeft" event="keyup"/>
-						</h:inputTextarea>
+            <h:panelGroup layout="block">
+                <h:form styleClass="reasonForm">
+                    <h:panelGroup layout="block" styleClass="inputPanel">
+                        <h:outputLabel id="firstNameLabel" value="#{messages.firstName}" for="firstName" styleClass="inputLabel"/>
+                        <h:inputText id="firstName" value="#{userBean.firstName}" pt:placeholder="#{messages.pleaseFillMe}"
+                                     validator="#{NameValidatorBean.validateFirstName}">
+                            <f:ajax event="keyup" render="firstNameError" immediate="false"/>
+                        </h:inputText>
+                        <h:message showSummary="true" showDetail="false" errorClass="errors" infoClass="ok" id="firstNameError" for="firstName"/>
                     </h:panelGroup>
-                </h:panelGroup>
-                <h:panelGroup layout="block" styleClass="inputPanel">
-					<h:commandButton value="Submit"/>
-                </h:panelGroup>
-            </h:form>
+
+                    <h:panelGroup layout="block" styleClass="inputPanel">
+                        <h:outputLabel id="lastNameLabel" value="#{messages.lastName}" for="lastName" styleClass="inputLabel"/>
+                        <h:inputText id="lastName" value="#{userBean.lastName}" pt:placeholder="#{messages.pleaseFillMe}"
+                                     validator="#{NameValidatorBean.validateLastName}">
+                            <f:ajax event="keyup" render="lastNameError" immediate="false"/>
+                        </h:inputText>
+                        <h:message showSummary="true" showDetail="false" errorClass="errors" infoClass="ok" id="lastNameError" for="lastName"/>
+                    </h:panelGroup>
+
+                    <h:panelGroup layout="block" styleClass="inputPanel">
+                        <h:outputLabel id="genderLabel" value="#{messages.gender}" for="gender" styleClass="inputLabel"/>
+                        <h:selectOneRadio id="gender" value="#{userBean.gender}">
+                            <f:selectItem itemLabel="#{messages.male}" itemValue="Male"/>
+                            <f:selectItem itemLabel="#{messages.female}" itemValue="Female"/>
+                        </h:selectOneRadio>
+                    </h:panelGroup>
+
+                    <h:panelGroup layout="block" styleClass="inputPanel">
+                        <h:panelGroup layout="block" styleClass="messageAreaTop">
+                                <h:panelGroup styleClass="reasonPanel">
+                                        <h:outputLabel id="reasonLabel" value="#{messages.whyAreYouApplying}" for="reason"/>
+                                </h:panelGroup>
+                                        <h:message showSummary="true" showDetail="false" styleClass="charactersLeftCommonAttributes" 
+                                                   errorClass="noCharactersLeft" warnClass="notMuchCharactersLeft" infoClass="plentyCharactersLeft" 
+                                                   id="charsLeft" for="reason"/>
+                        </h:panelGroup>
+
+                        <h:panelGroup layout="block">
+                        <h:inputTextarea id="reason" value="#{userBean.reasonForApplying}" styleClass="reasonTextarea"
+                                                         pt:placeholder="#{messages.pleaseFillMe}" binding="#{characterCalculatorBean.reasonArea}">
+                                <f:ajax listener="#{characterCalculatorBean.charTyped}" render="charsLeft" event="keyup"/>
+                        </h:inputTextarea>
+                        </h:panelGroup>
+                    </h:panelGroup>
+                    <h:panelGroup layout="block" styleClass="inputPanel">
+                        <h:commandButton value="#{messages.submitButton}" styleClass="submitButton"/>
+                    </h:panelGroup>
+                </h:form>
+            </h:panelGroup>
         </h:panelGroup>
         <h:panelGroup styleClass="copyrightInfo" layout="block">
             <client:copyright/>
