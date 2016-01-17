@@ -25,6 +25,9 @@
             <h:panelGroup styleClass="whatIsThisPage" layout="block">
                 <h:outputText value="#{customMessages.recruitmentCampaign}"/>
             </h:panelGroup>
+            <h:panelGroup layout="block" styleClass="requiredField">
+                <h:outputText value="#{messages.allFieldsRequired}"/>
+            </h:panelGroup>
             <h:panelGroup layout="block">
                 <h:form styleClass="reasonForm">
                     <h:panelGroup layout="block" styleClass="inputPanel">
@@ -71,7 +74,7 @@
                         </h:panelGroup>
                     </h:panelGroup>
                     <h:panelGroup layout="block" styleClass="inputPanel">
-                        <h:commandButton value="#{messages.submitButton}" styleClass="submitButton"/>
+                        <h:commandButton value="#{messages.submitButton}" styleClass="submitButton" action="#{userBean.submit}"/>
                     </h:panelGroup>
                 </h:form>
             </h:panelGroup>

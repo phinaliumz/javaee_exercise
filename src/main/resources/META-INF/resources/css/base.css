@@ -33,9 +33,14 @@ body {
     width: 100%;
 }
 
+.requiredField {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.00em;
+}
+
 .copyrightInfo {
     height: 5%;
-    margin-top: 5em;
+    margin-top: 4em;
 }
 
 input[type=text] {
@@ -61,7 +66,7 @@ input[type=text] {
 }
 
 .reasonForm {
-    margin-top: 1.5em;
+    margin-top: 1.25em;
 }
 
 .messageAreaTop {

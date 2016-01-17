@@ -1,6 +1,7 @@
 package com.samikallio.exercise.user;
 
 import com.samikallio.exercise.job.ApplyingReasonEntity;
+import com.sun.istack.logging.Logger;
 import javax.ejb.EJB;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Named;
@@ -13,6 +14,8 @@ import javax.inject.Named;
 @Named("userBean")
 @RequestScoped
 public class UserManagedBean {
+    
+    private final static Logger LOGGER = Logger.getLogger(UserManagedBean.class);
     
     /**
      * Enterprise bean for database transactions
@@ -73,5 +76,15 @@ public class UserManagedBean {
 
     public void setReasonForApplying(String reasonForApplying) {
         this.reasonForApplying = reasonForApplying;
+    }
+    
+    /*
+    * This method is called when user clicks "Submit"-button in the form. The
+    * method is responsible for checking the submitted information, and should
+    * everything be ok, then save the information to database
+    */
+    public String submit() {
+        
+        return "success";
     }
 }
