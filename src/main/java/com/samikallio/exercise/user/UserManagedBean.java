@@ -1,6 +1,7 @@
 package com.samikallio.exercise.user;
 
 import com.samikallio.exercise.job.ApplyingReasonEntity;
+import com.samikallio.exercise.job.ApplyingReasonEnterpriseBeanLocal;
 import com.sun.istack.logging.Logger;
 import javax.ejb.EJB;
 import javax.faces.bean.RequestScoped;
@@ -18,10 +19,16 @@ public class UserManagedBean {
     private final static Logger LOGGER = Logger.getLogger(UserManagedBean.class);
     
     /**
-     * Enterprise bean for database transactions
+     * Enterprise bean for userentity database transactions
      */
     @EJB
     private UserEnterpriseBeanLocal userEJB;
+    
+    /**
+     * Enterprise bean for applyingreason entity database transactions
+     */
+    @EJB
+    private ApplyingReasonEnterpriseBeanLocal reasonEJB;
     
     /**
      * Entity, which is the data that will be persisted to database
@@ -84,6 +91,25 @@ public class UserManagedBean {
     * everything be ok, then save the information to database
     */
     public String submit() {
+		
+		userEntity = new UserEntity();
+		userEntity.setFirstName(this.firstName);
+		userEntity.setLastName(this.lastName);
+		if(this.gender.equals("Male")) {
+			userEntity.setIsFemale(false);
+		} else {
+			userEntity.setIsFemale(true);
+		}
+		
+		reasonEntity = new ApplyingReasonEntity();
+		reasonEntity.setReason(this.reasonForApplying);
+		
+		userEntity = userEJB.persistUser(userEntity);
+		reasonEntity.setUser(userEntity);
+		
+		reasonEJB.persistReason(reasonEntity);
+		
+		
         
         return "success";
     }
