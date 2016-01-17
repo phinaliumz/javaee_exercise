@@ -3,6 +3,7 @@ package com.samikallio.exercise.user;
 import com.samikallio.exercise.job.ApplyingReasonEntity;
 import com.samikallio.exercise.job.ApplyingReasonEnterpriseBeanLocal;
 import com.sun.istack.logging.Logger;
+import java.util.logging.Level;
 import javax.ejb.EJB;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Named;
@@ -92,22 +93,27 @@ public class UserManagedBean {
     */
     public String submit() {
 		
-		userEntity = new UserEntity();
-		userEntity.setFirstName(this.firstName);
-		userEntity.setLastName(this.lastName);
-		if(this.gender.equals("Male")) {
-			userEntity.setIsFemale(false);
-		} else {
-			userEntity.setIsFemale(true);
-		}
-		
-		reasonEntity = new ApplyingReasonEntity();
-		reasonEntity.setReason(this.reasonForApplying);
-		
-		userEntity = userEJB.persistUser(userEntity);
-		reasonEntity.setUser(userEntity);
-		
-		reasonEJB.persistReason(reasonEntity);
+        userEntity = new UserEntity();
+        userEntity.setFirstName(this.firstName);
+        userEntity.setLastName(this.lastName);
+        if(this.gender.equals("Male")) {
+                userEntity.setIsFemale(false);
+        } else {
+                userEntity.setIsFemale(true);
+        }
+
+        reasonEntity = new ApplyingReasonEntity();
+        reasonEntity.setReason(this.reasonForApplying);
+
+        userEntity = userEJB.persistUser(userEntity);
+        
+        LOGGER.log(Level.INFO, "userEntity id-> " + userEntity.getId());
+        
+        reasonEntity.setUser(userEntity);
+
+        reasonEntity = reasonEJB.persistReason(reasonEntity);
+        
+        LOGGER.log(Level.INFO, "reasonEntity id -> " + reasonEntity.getId());
 		
 		
         

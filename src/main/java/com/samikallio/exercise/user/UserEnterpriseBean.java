@@ -18,7 +18,9 @@ public class UserEnterpriseBean implements UserEnterpriseBeanLocal {
     
     @Override
     public UserEntity persistUser(UserEntity user) {
+        
         em.persist(user);
+        em.flush();
         return user;
     }
 }

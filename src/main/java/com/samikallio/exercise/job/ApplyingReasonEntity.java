@@ -7,11 +7,13 @@ package com.samikallio.exercise.job;
 
 import com.samikallio.exercise.user.UserEntity;
 import java.io.Serializable;
+import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -25,9 +27,10 @@ public class ApplyingReasonEntity implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     
+    @NotNull
     private String reason;
     
-    @OneToOne(mappedBy="reason")
+    @OneToOne(cascade=ALL, mappedBy="reason")
     private UserEntity user;
     
 
