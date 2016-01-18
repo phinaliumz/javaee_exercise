@@ -2,9 +2,9 @@ package com.samikallio.exercise.user;
 
 import com.samikallio.exercise.job.ApplyingReasonEntity;
 import com.sun.istack.logging.Logger;
-import java.util.logging.Level;
 import javax.ejb.EJB;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
 /**
@@ -86,22 +86,24 @@ public class UserManagedBean {
     */
     public String submit() {
 		
-        userEntity = new UserEntity();
-        userEntity.setFirstName(this.firstName);
-        userEntity.setLastName(this.lastName);
+        this.userEntity = new UserEntity();
+        this.userEntity.setFirstName(this.firstName);
+        this.userEntity.setLastName(this.lastName);
         
         if(this.gender.equals("Male")) {
-                userEntity.setIsFemale(false);
+                this.userEntity.setIsFemale(false);
         } else {
-                userEntity.setIsFemale(true);
+                this.userEntity.setIsFemale(true);
         }
 
-        reasonEntity = new ApplyingReasonEntity();
-        reasonEntity.setReason(this.reasonForApplying);
+        this.reasonEntity = new ApplyingReasonEntity();
+        this.reasonEntity.setReason(this.reasonForApplying);
 
-        userEntity.setReason(reasonEntity);
-        reasonEntity.setUser(userEntity);
-        userEntity = userEJB.persistUser(userEntity);
+        this.userEntity.setReason(this.reasonEntity);
+        this.reasonEntity.setUser(this.userEntity);
+        this.userEntity = userEJB.persistUser(this.userEntity);
+        
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("userId", this.userEntity.getId());
 		
         return "success";
     }

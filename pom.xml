@@ -56,19 +56,6 @@
         <finalName>exercise</finalName>
         <plugins>
             <plugin>
-                <groupId>org.apache.openejb.maven</groupId>
-                <artifactId>tomee-maven-plugin</artifactId>
-                <version>1.7.1</version>
-                <configuration>
-                  <tomeeVersion>1.7.1</tomeeVersion>
-                  <tomeeClassifier>plus</tomeeClassifier>
-                  <tomeeHttpPort>8080</tomeeHttpPort>
-                  <tomeeHost>localhost</tomeeHost>
-                  <path>${project.build.directory}/${project.build.finalName}</path>
-                  <reloadOnUpdate>true</reloadOnUpdate>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
@@ -92,7 +79,6 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
                 <version>2.6</version>
-                <!--
                 <executions>
                     <execution>
                         <phase>validate</phase>
@@ -113,7 +99,6 @@
                         </configuration>
                     </execution>
                 </executions>
-                -->
             </plugin>
         </plugins>
     </build>

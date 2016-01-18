@@ -11,5 +11,6 @@ import javax.ejb.Local;
 public interface UserEnterpriseBeanLocal {
     
     public UserEntity persistUser(UserEntity user);
+    public UserEntity findUserById(Integer userId);
     
 }

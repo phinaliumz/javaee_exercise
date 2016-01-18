@@ -23,4 +23,9 @@ public class UserEnterpriseBean implements UserEnterpriseBeanLocal {
         em.flush();
         return user;
     }
+
+    @Override
+    public UserEntity findUserById(Integer userId) {
+        return em.find(UserEntity.class, userId);
+    }
 }
