@@ -1,7 +1,6 @@
 package com.samikallio.exercise.user;
 
 import com.samikallio.exercise.job.ApplyingReasonEntity;
-import com.samikallio.exercise.job.ApplyingReasonEnterpriseBeanLocal;
 import com.sun.istack.logging.Logger;
 import java.util.logging.Level;
 import javax.ejb.EJB;
@@ -20,17 +19,11 @@ public class UserManagedBean {
     private final static Logger LOGGER = Logger.getLogger(UserManagedBean.class);
     
     /**
-     * Enterprise bean for userentity database transactions
+     * Enterprise bean for database transactions
      */
     @EJB
     private UserEnterpriseBeanLocal userEJB;
-    
-    /**
-     * Enterprise bean for applyingreason entity database transactions
-     */
-    @EJB
-    private ApplyingReasonEnterpriseBeanLocal reasonEJB;
-    
+  
     /**
      * Entity, which is the data that will be persisted to database
      */
@@ -96,6 +89,7 @@ public class UserManagedBean {
         userEntity = new UserEntity();
         userEntity.setFirstName(this.firstName);
         userEntity.setLastName(this.lastName);
+        
         if(this.gender.equals("Male")) {
                 userEntity.setIsFemale(false);
         } else {
@@ -105,18 +99,10 @@ public class UserManagedBean {
         reasonEntity = new ApplyingReasonEntity();
         reasonEntity.setReason(this.reasonForApplying);
 
-        userEntity = userEJB.persistUser(userEntity);
-        
-        LOGGER.log(Level.INFO, "userEntity id-> " + userEntity.getId());
-        
+        userEntity.setReason(reasonEntity);
         reasonEntity.setUser(userEntity);
-
-        reasonEntity = reasonEJB.persistReason(reasonEntity);
-        
-        LOGGER.log(Level.INFO, "reasonEntity id -> " + reasonEntity.getId());
+        userEntity = userEJB.persistUser(userEntity);
 		
-		
-        
         return "success";
     }
 }

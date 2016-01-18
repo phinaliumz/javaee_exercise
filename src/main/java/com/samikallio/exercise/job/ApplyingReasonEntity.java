@@ -1,13 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This is the entity, that saves the reason user provided to the database
  */
 package com.samikallio.exercise.job;
 
 import com.samikallio.exercise.user.UserEntity;
 import java.io.Serializable;
-import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,7 +14,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author sami
+ * @author Sami Kallio <sami.m.j.kallio at student.jyu.fi>
  */
 @Entity
 public class ApplyingReasonEntity implements Serializable {
@@ -30,7 +27,7 @@ public class ApplyingReasonEntity implements Serializable {
     @NotNull
     private String reason;
     
-    @OneToOne(cascade=ALL, mappedBy="reason")
+    @OneToOne
     private UserEntity user;
     
 

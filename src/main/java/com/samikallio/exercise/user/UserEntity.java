@@ -2,6 +2,7 @@ package com.samikallio.exercise.user;
 
 import com.samikallio.exercise.job.ApplyingReasonEntity;
 import java.io.Serializable;
+import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,7 +30,7 @@ public class UserEntity implements Serializable {
     @NotNull
     private Boolean isFemale;
     
-    @OneToOne
+    @OneToOne(cascade=ALL, mappedBy="user")
     private ApplyingReasonEntity reason;
 
     public Integer getId() {
