@@ -24,33 +24,33 @@
         
         <h:panelGroup styleClass="content" layout="block">
             <h:panelGroup layout="block" styleClass="thankYouForInformation">
-                <h:outputText value="#{messages.thankYouForYourInformation} #{reviewBean.firstName}"/>
+                <h:outputText value="Kiitos tiedoistasi Taavi"/>
             </h:panelGroup>
             <h:panelGroup layout="block" styleClass="hereIsYourInformation">
                 <h:outputText value="#{messages.hereIsTheInformationYouEntered}:"/>
             </h:panelGroup>
             <h:panelGroup layout="block" styleClass="panels">
                 <h:outputLabel value="#{messages.firstName}" for="firstName" styleClass="firstNameLabel"/>
-                <h:outputText id="firstName" value="#{reviewBean.firstName}"/>
+                <h:outputText id="firstName" value="Taavi" styleClass="information"/>
             </h:panelGroup>
             <h:panelGroup layout="block" styleClass="panels">
                 <h:outputLabel value="#{messages.lastName}" for="lastName"/>
-                <h:outputText id="lastName" value="#{reviewBean.lastName}"/>
+                <h:outputText id="lastName" value="Tavallinen" styleClass="information"/>
             </h:panelGroup>
             <h:panelGroup layout="block" styleClass="panels">
                 <h:outputLabel value="#{messages.gender}" for="gender"/>
-                <h:outputText id="gender" value="#{reviewBean.gender}"/>
+                <h:outputText id="gender" value="Mies" styleClass="information"/>
             </h:panelGroup>
             <h:panelGroup layout="block" styleClass="panels">
                 <h:outputLabel value="#{messages.whyAreYouApplying}" for="reason"/>
                 <br/>
-                <h:outputText id="reason" value="#{reviewBean.reason}"/>
+                <h:outputText id="reason" value="Esimerkki" styleClass="information"/>
             </h:panelGroup>
             <h:panelGroup layout="block" styleClass="thankYouHaveANiceDay">
                 <h:outputText value="#{messages.thankYouHaveANiceDay}"/>
             </h:panelGroup>
-        
         </h:panelGroup>
+        
         <h:panelGroup styleClass="copyrightInfo" layout="block">
             <client:copyright/>
         </h:panelGroup>
