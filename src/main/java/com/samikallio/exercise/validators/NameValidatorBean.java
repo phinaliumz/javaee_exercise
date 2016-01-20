@@ -50,17 +50,13 @@ public class NameValidatorBean {
     //Validation ok message
     private final static String VALIDATED_OK = "validatedOk";
 
-    //These limits are not based on any actual research, I just picked them
-    //from the hat
-    private final static int NAME_MAX_LENGTH = 30;
-    private final static int NAME_MIN_LENGTH = 2;
     /*
      * Validates names against small letters a-ö and big letters A-Ö.
      * Also, there might be a dash in a name, eg. "Veli-Matti", so it also
      * must be validated. This won't be built into pattern-matching, String.split
      * will be used and validate the two names separately
      */
-    private final static String NAME_PATTERN = "^[a-öA-Ö]{" + NAME_MIN_LENGTH + "," + NAME_MAX_LENGTH + "}$";
+    private final static String NAME_PATTERN = "^[a-öA-Ö]{" + Constraints.NAME_MIN_LENGTH + "," + Constraints.NAME_MAX_LENGTH + "}$";
     private final Pattern namePattern;
     private Matcher matcher;
     private boolean isValidMessage;
@@ -84,9 +80,9 @@ public class NameValidatorBean {
     
     private int validateName(String name) {
         
-        if(name.length() > NAME_MAX_LENGTH) {
+        if(name.length() > Constraints.NAME_MAX_LENGTH) {
             return TOO_LONG;
-        } else if(name.length() < NAME_MIN_LENGTH) {
+        } else if(name.length() < Constraints.NAME_MIN_LENGTH) {
             return TOO_SHORT;
         } else {
             String[] splittedName = name.split("-");

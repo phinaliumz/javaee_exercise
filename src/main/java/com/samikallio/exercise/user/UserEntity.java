@@ -1,6 +1,7 @@
 package com.samikallio.exercise.user;
 
 import com.samikallio.exercise.job.ApplyingReasonEntity;
+import com.samikallio.exercise.validators.Constraints;
 import java.io.Serializable;
 import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * The user entity. 
@@ -24,8 +26,10 @@ public class UserEntity implements Serializable {
     private Integer id;
     
     @NotNull
+    @Size(min = Constraints.NAME_MIN_LENGTH, max = Constraints.NAME_MAX_LENGTH)
     private String firstName;
     @NotNull
+    @Size(min = Constraints.NAME_MIN_LENGTH, max = Constraints.NAME_MAX_LENGTH)
     private String lastName;
     @NotNull
     private Boolean isFemale;

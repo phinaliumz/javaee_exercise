@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -18,6 +19,8 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 public class ApplyingReasonEntity implements Serializable {
+    
+    private static final int MAX_LENGTH = 500;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -25,6 +28,7 @@ public class ApplyingReasonEntity implements Serializable {
     private Integer id;
     
     @NotNull
+    @Size(max = MAX_LENGTH)
     private String reason;
     
     @OneToOne
