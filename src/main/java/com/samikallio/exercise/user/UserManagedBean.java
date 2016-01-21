@@ -80,9 +80,9 @@ public class UserManagedBean {
     }
     
     /*
-    * This method is called when user clicks "Submit"-button in the form. The
-    * method is responsible for checking the submitted information, and should
-    * everything be ok, then save the information to database
+    * This method is called when user clicks "Submit"-button in the form. The 
+    * validation of the data is done in the view level, so the validation is 
+    * not repeated here. 
     */
     public String submit() {
 		

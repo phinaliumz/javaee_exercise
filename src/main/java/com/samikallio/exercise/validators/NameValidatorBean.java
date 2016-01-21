@@ -31,8 +31,6 @@ public class NameValidatorBean {
     */
     private final static int MAX_SPLITTED_NAMES = 4;
     
-    private final static String requiredField = "*";
-    
     //Validation error codes
     private final static int OK = 0;
     private final static int TOO_SHORT = -1;
@@ -56,7 +54,7 @@ public class NameValidatorBean {
      * must be validated. This won't be built into pattern-matching, String.split
      * will be used and validate the two names separately
      */
-    private final static String NAME_PATTERN = "^[a-öA-Ö]{" + Constraints.NAME_MIN_LENGTH + "," + Constraints.NAME_MAX_LENGTH + "}$";
+    private final static String VALID_NAME_PATTERN = "^[a-öA-Ö]{" + Constraints.NAME_MIN_LENGTH + "," + Constraints.NAME_MAX_LENGTH + "}$";
     private final Pattern namePattern;
     private Matcher matcher;
     private boolean isValidMessage;
@@ -70,7 +68,7 @@ public class NameValidatorBean {
         Locale locale = ctx.getViewRoot().getLocale();
         resources = ResourceBundle.getBundle(
                 "com.samikallio.exercise.messages.ValidationMessages", locale);
-        namePattern = Pattern.compile(NAME_PATTERN);
+        namePattern = Pattern.compile(VALID_NAME_PATTERN);
     }
     
     private boolean nameMatchesValidationRules(String name) {
