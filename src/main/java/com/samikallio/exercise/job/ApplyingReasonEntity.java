@@ -4,6 +4,7 @@
 package com.samikallio.exercise.job;
 
 import com.samikallio.exercise.user.UserEntity;
+import com.samikallio.exercise.validators.Constraints;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,8 +20,6 @@ import javax.validation.constraints.Size;
  */
 @Entity
 public class ApplyingReasonEntity implements Serializable {
-    
-    private static final int MAX_LENGTH = 500;
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -28,7 +27,7 @@ public class ApplyingReasonEntity implements Serializable {
     private Integer id;
     
     @NotNull
-    @Size(max = MAX_LENGTH)
+    @Size(max = Constraints.REASON_MAX_LENGTH)
     private String reason;
     
     @OneToOne
