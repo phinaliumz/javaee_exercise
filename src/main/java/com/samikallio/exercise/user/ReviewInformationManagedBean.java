@@ -46,6 +46,14 @@ public class ReviewInformationManagedBean {
                 "com.samikallio.exercise.messages.Messages", locale);
     }
     
+    /*
+    * On initialization-phase the bean checks that userId is saved to current session.
+    * This indicates that the user has navigated here from index.xhtml and entered
+    * the required information.
+    *
+    * If the userId is not present in current session, an error is thrown, and JSF
+    * redirects the user back to index.xhtml
+    */
     @PostConstruct 
     public void init() {
         if(userEntity == null) {

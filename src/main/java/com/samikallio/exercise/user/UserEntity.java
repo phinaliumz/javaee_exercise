@@ -3,6 +3,7 @@ package com.samikallio.exercise.user;
 import com.samikallio.exercise.job.ApplyingReasonEntity;
 import com.samikallio.exercise.validators.Constraints;
 import java.io.Serializable;
+import java.sql.Date;
 import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +15,9 @@ import javax.validation.constraints.Size;
 
 /**
  * The user entity. 
+ * 
+ * There is not a lot of validation here, since most of the validation is done
+ * in the view-level
  * 
  * @author Sami Kallio <sami.m.j.kallio at student.jyu.fi>
  */
@@ -33,6 +37,12 @@ public class UserEntity implements Serializable {
     private String lastName;
     @NotNull
     private Boolean isFemale;
+    
+    /*
+    * Since user can enter the reason multiple times, this field is saved
+    * to database to see which of the reasons is the most current one.
+    */
+    private Date registrationDate;
     
     @OneToOne(cascade=ALL, mappedBy="user")
     private ApplyingReasonEntity reason;
@@ -75,6 +85,14 @@ public class UserEntity implements Serializable {
 
     public void setReason(ApplyingReasonEntity reason) {
         this.reason = reason;
+    }
+
+    public Date getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(Date registrationDate) {
+        this.registrationDate = registrationDate;
     }
 
     @Override

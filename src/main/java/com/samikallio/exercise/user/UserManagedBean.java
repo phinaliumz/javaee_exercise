@@ -2,6 +2,9 @@ package com.samikallio.exercise.user;
 
 import com.samikallio.exercise.job.ApplyingReasonEntity;
 import com.sun.istack.logging.Logger;
+import java.sql.Date;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.ejb.EJB;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
@@ -17,6 +20,12 @@ import javax.inject.Named;
 public class UserManagedBean {
     
     private final static Logger LOGGER = Logger.getLogger(UserManagedBean.class);
+    
+    /**
+     * Calendar for saving the information on the date when user entered 
+     * the reason to database
+     */
+    private Calendar calendar;
     
     /**
      * Enterprise bean for database transactions
@@ -86,9 +95,12 @@ public class UserManagedBean {
     */
     public String submit() {
 		
+        this.calendar = new GregorianCalendar();
+        
         this.userEntity = new UserEntity();
         this.userEntity.setFirstName(this.firstName);
         this.userEntity.setLastName(this.lastName);
+        this.userEntity.setRegistrationDate((Date) calendar.getTime());
         
         if(this.gender.equals("Male")) {
                 this.userEntity.setIsFemale(false);

@@ -15,6 +15,7 @@ public class Constraints {
     public final static int NAME_MIN_LENGTH = 2;  // ------""---------- min length
     public final static int REASON_MIN_LENGTH = 1; //reason min length
     public final static int REASON_MAX_LENGTH = 500; //reason max length
+    public final static int REASON_MAX_CHARS = 500; //maximum amount of characters for a reason
     
     public Constraints() {
         

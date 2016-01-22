@@ -4,6 +4,7 @@
  */
 package com.samikallio.exercise.tools;
 
+import com.samikallio.exercise.validators.Constraints;
 import com.sun.istack.logging.Logger;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -26,7 +27,6 @@ public class CharacterCalculatorBean implements Serializable {
     private final static Logger LOGGER = Logger.getLogger(CharacterCalculatorBean.class);
     private final static String CHARACTERS_LEFT_MESSAGE = "charactersLeft";
     
-    private static final int MAX_CHARS = 500;
     private static final int PLENTY_CHARACTERS_LEFT = 0;
     private static final int NOT_MUCH_CHARACTERS_LEFT = -1;
     private static final int NO_CHARACTERS_LEFT = -2;
@@ -50,15 +50,15 @@ public class CharacterCalculatorBean implements Serializable {
         String content = (String)reasonArea.getValue();
         typedChars = content.length();
         String charactersLeftMessage = "(" + 
-			Integer.toString(MAX_CHARS - typedChars) + " " + resources.getString(CHARACTERS_LEFT_MESSAGE)
+			Integer.toString(Constraints.REASON_MAX_CHARS - typedChars) + " " + resources.getString(CHARACTERS_LEFT_MESSAGE)
 			+ ")";
         
         //50 percent chars left = PLENTY_CHARACTERS_LEFT
-        if(MAX_CHARS - typedChars > MAX_CHARS * 0.5) {
+        if(Constraints.REASON_MAX_CHARS - typedChars > Constraints.REASON_MAX_CHARS * 0.5) {
             messageType = PLENTY_CHARACTERS_LEFT;
-        } else if(MAX_CHARS - typedChars > MAX_CHARS * 0.25) { //25 percent chars left = NOT_MUCH_CHARACTERS_LEFT
+        } else if(Constraints.REASON_MAX_CHARS - typedChars > Constraints.REASON_MAX_CHARS * 0.25) { //25 percent chars left = NOT_MUCH_CHARACTERS_LEFT
             messageType = NOT_MUCH_CHARACTERS_LEFT;
-        } else if((MAX_CHARS - typedChars) < 0) { //zero chars left = NO_CHARACTERS_LEFT
+        } else if((Constraints.REASON_MAX_CHARS - typedChars) < 0) { //zero chars left = NO_CHARACTERS_LEFT
             messageType = NO_CHARACTERS_LEFT;
         }
         

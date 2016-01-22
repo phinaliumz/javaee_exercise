@@ -15,7 +15,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
- *
+ * Here is not a lot of validation, since validation is done in the view-level
+ * 
  * @author Sami Kallio <sami.m.j.kallio at student.jyu.fi>
  */
 @Entity
