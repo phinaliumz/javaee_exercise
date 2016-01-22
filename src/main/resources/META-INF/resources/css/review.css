@@ -19,6 +19,8 @@ Version 2.0
     font-family: 'Ubuntu', sans-serif;
     margin-top: 0.25em;
     margin-bottom: 1.0em;
+    width: 100%;
+    overflow: auto;
 }
 
 label {

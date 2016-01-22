@@ -3,13 +3,14 @@ package com.samikallio.exercise.user;
 import com.samikallio.exercise.job.ApplyingReasonEntity;
 import com.samikallio.exercise.validators.Constraints;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 import static javax.persistence.CascadeType.ALL;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Temporal;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -42,6 +43,7 @@ public class UserEntity implements Serializable {
     * Since user can enter the reason multiple times, this field is saved
     * to database to see which of the reasons is the most current one.
     */
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date registrationDate;
     
     @OneToOne(cascade=ALL, mappedBy="user")

@@ -2,7 +2,6 @@ package com.samikallio.exercise.user;
 
 import com.samikallio.exercise.job.ApplyingReasonEntity;
 import com.sun.istack.logging.Logger;
-import java.sql.Date;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.ejb.EJB;
@@ -100,7 +99,7 @@ public class UserManagedBean {
         this.userEntity = new UserEntity();
         this.userEntity.setFirstName(this.firstName);
         this.userEntity.setLastName(this.lastName);
-        this.userEntity.setRegistrationDate((Date) calendar.getTime());
+        this.userEntity.setRegistrationDate(calendar.getTime());
         
         if(this.gender.equals("Male")) {
                 this.userEntity.setIsFemale(false);
