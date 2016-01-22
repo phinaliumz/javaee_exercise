@@ -51,7 +51,6 @@ public class ReviewInformationManagedBean {
         if(userEntity == null) {
             userId = (Integer)FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("userId");
             if(userId == null) {
-                LOGGER.log(Level.SEVERE, "UserIdNotFound");
                 throw new UserIdNotFound("Userid not found!");
             } else {
                 userEntity = userEJB.findUserById(userId);
