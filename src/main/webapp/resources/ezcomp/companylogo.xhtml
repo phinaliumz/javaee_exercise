@@ -16,10 +16,10 @@ header for the client
     <cc:implementation>
         <h:outputStylesheet library="css" name="companylogo.css"/>
         <h:panelGroup styleClass="companyLogo" layout="block">
-            <h:panelGroup style="float: left; width: 7.5%;">
+            <h:panelGroup styleClass="companyLogoPanel">
                 <h:graphicImage library="images" name="Wave.jpg"/>
             </h:panelGroup>
-            <h:panelGroup style="float: left; width: 65%; margin-top: 3%;">
+            <h:panelGroup styleClass="companyTextPanel">
                 <h:outputText value="#{customMessages.companyName}" styleClass="companyText"/>
             </h:panelGroup>
         </h:panelGroup>

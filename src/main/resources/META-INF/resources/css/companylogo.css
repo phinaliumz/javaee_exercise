@@ -8,11 +8,21 @@ style file could be customized to different clients.
 This file customizes the logo-header.
 */
 
+.companyLogoPanel {
+    float: left;
+    width: 75px;
+}
+
 .companyLogo {
     width: 90%;
     margin-left: auto;
     margin-right: auto;
     height: 100%;
+}
+
+.companyTextPanel {
+    float: left;
+    margin-top: 3%;
 }
 
 .companyText {

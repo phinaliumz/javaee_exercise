@@ -7,17 +7,11 @@ Version 2.0
 
 .thankYouForInformation {
     width: 100%;
-    height: 5em;
+    height: 2.5em;
     margin-top: 2em;
-    margin-bottom: 2em;
     font-family: 'Ubuntu', sans-serif;
     font-size: 1.25em;
-}
-
-.hereIsYourInformation {
-    width: 100%;
-    margin-bottom: 1.5em;
-    font-size: 1.15em;
+    background-color: red;
 }
 
 .information {

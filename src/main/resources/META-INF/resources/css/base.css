@@ -29,7 +29,7 @@ body {
 }
 
 .companyInfo {
-    height: 4em;
+    height: 121px;
     width: 100%;
 }
 
@@ -40,10 +40,9 @@ body {
 
 .content {
     width: 80%;
-    height: 75%;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 4.5%;
+    margin-top: 0.75em;
 }
 
 .errors {
